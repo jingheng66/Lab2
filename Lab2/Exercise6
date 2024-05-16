@@ -1,0 +1,35 @@
+def display_main_menu():
+    print("Enter some numbers separated by commas (e.g. 5, 67, 32)")
+
+def get_user_input():
+    # Step 1: Read input from the user
+    user_input = input()
+
+    # Step 2: Split the input string into a list of strings based on the comma character
+    str_list = user_input.split(',')
+
+    # Step 3: Convert the list of strings to a list of floats
+    float_list = [float(num) for num in str_list]
+
+    # Step 4: Return the list of floats
+    return float_list
+
+def calc_median_temperature(temperature_values_list):
+    sorted_list = sorted(temperature_values_list)
+    
+    n = len(sorted_list)
+    if n % 2 == 0:
+        # If even number of elements, median is the average of the two middle numbers
+        median = (sorted_list[n//2 - 1] + sorted_list[n//2]) / 2
+    else:
+        # If odd number of elements, median is the middle number
+        median = sorted_list[n//2]
+    
+    return median
+
+display_main_menu()
+temperatures = get_user_input()
+median_temp = calc_median_temperature(temperatures)
+print("Median Temperature:", median_temp)
+
+
